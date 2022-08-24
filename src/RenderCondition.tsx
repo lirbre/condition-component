@@ -2,7 +2,7 @@ import { ReactNode, useMemo } from "react";
 
 interface RenderConditionProps {
   condition: boolean;
-  depArray?: Array<any>;
+  depArray?: ReadonlyArray<unknown>;
   children: ReactNode;
 }
 
@@ -11,7 +11,7 @@ export const RenderCondition = ({
   depArray,
   children,
 }: RenderConditionProps) => {
-  const memoizedChildren = useMemo(() => children, [depArray]);
+  const memoizedChildren = useMemo(() => children, depArray);
 
   if (!condition) return <></>;
 
