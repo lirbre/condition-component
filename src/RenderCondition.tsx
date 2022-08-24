@@ -11,7 +11,7 @@ export const RenderCondition = ({
   depArray,
   children,
 }: RenderConditionProps) => {
-  const memoizedChildren = useMemo(() => children, depArray);
+  const memoizedChildren = useMemo(() => children, [depArray]);
 
   if (!condition) return <></>;
 
